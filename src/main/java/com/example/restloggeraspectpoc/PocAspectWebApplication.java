@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PocAspectWebApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PocAspectWebApplication.class, args);
+        SpringApplication.run(PocAspectWebApplication.class);
     }
 
 }

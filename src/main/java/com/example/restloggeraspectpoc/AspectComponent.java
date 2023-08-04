@@ -24,9 +24,12 @@ public class AspectComponent {
             DeleteMapping.class
     );
 
-    @Before("execution(* com.example.restloggeraspectpoc.*Controller.*(..))")
-    public void logRestConsole(JoinPoint joinPoint) {
-        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+    @Before("execution(* com.example.restloggeraspectpoc..*Controller.*(..))")
+    public void logRestConsoleRoot(final JoinPoint joinPoint) {
+        this.logRestConsole(joinPoint);
+    }
+    private void logRestConsole(final JoinPoint joinPoint) {
+        final MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         final String sourceName = joinPoint.getTarget().getClass().getSimpleName();
         final String methodName = signature.getName();
         final Object[] args = joinPoint.getArgs();
